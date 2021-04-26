@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vue.Controler">
+   <children>
+      <Canvas fx:id="canvas" height="479.0" layoutY="24.0" width="724.0" />
+      <ImageView fx:id="imageV" fitHeight="479.0" fitWidth="724.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+      <MenuBar prefHeight="25.0" prefWidth="865.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="importBtn" mnemonicParsing="false" onAction="#importAction" text="Import" />
+                  <MenuItem mnemonicParsing="false" text="Save as" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Filters">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Add filter" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Components">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Shapes">
+                     <graphic>
+                        <SplitMenuButton mnemonicParsing="false" text="shape choice">
+                          <items>
+                            <MenuItem fx:id="rectChoice" mnemonicParsing="false" onAction="#createRect" text="rectangle" />
+                            <MenuItem mnemonicParsing="false" text="circle" />
+                          </items>
+                        </SplitMenuButton>
+                     </graphic></MenuItem>
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Pane layoutX="720.0" layoutY="24.0" prefHeight="479.0" prefWidth="145.0">
+         <children>
+            <Button fx:id="rotateB" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#rotate" prefHeight="25.0" prefWidth="130.0" text="rotate" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
