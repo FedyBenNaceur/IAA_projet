@@ -2,7 +2,9 @@ package Vue;
 
 import java.io.File;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
@@ -19,19 +21,18 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import Controleur.ComponentControl;
 import Model.Component;
 import Model.Model;
 import Model.Polygone;
 import javafx.scene.image.Image;
 
-public class Controler {
+public class Controler implements Initializable {
 	@FXML
 	private MenuItem importBtn;
-	@FXML
-	private ImageView imageV;
-	@FXML
-	private Button rotateB;
 	@FXML
 	private Canvas canvas;
 	@FXML
@@ -41,10 +42,10 @@ public class Controler {
 
 	private Image img;
 
-	private Model model;
+	public Model model;
 
 	public Controler() {
-		this.model = new Model();
+		this.model = new Model();	
 	}
 
 	@FXML
@@ -54,13 +55,10 @@ public class Controler {
 		File selectedFile = fc.showOpenDialog(null);
 		if (selectedFile != null) {
 			Image image = new Image(selectedFile.toURI().toString());
-		    imageV.setImage(image);
-			/*GraphicsContext gc = canvas.getGraphicsContext2D();
+			GraphicsContext gc = canvas.getGraphicsContext2D();
 			this.img = image;
 			gc.drawImage(image, 0, 0);
 			gc.save();
-			*/
-
 		} else {
 			System.out.println("file not selected or invalid file chosen");
 		}
@@ -71,19 +69,39 @@ public class Controler {
 	}
 
 	@FXML
-	public void rotate() {
-		if (!isEmpty()) {
-			imageV.setRotate(imageV.getRotate() + 10);
-		}
-	}
-
-	@FXML
 	public void createRect() {
-		Component c = new Polygone(0, 0, 100, 100);
+		Component c = new Polygone(0, 0,50, 50);
 		model.composantes.add(c);
+
+	
 		model.drawComponents(canvas.getGraphicsContext2D());
 		System.out.println("Rectangle created");
+	}
 
+	public void repaint() {
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+		model.drawComponents(gc);
+
+	}
+	
+	public void initControls() {
+		ComponentControl cp = new ComponentControl(this);
+		this.canvas.setOnMousePressed(Event -> {
+			cp.attraper(Event);
+		});
+		this.canvas.setOnMouseDragged(Event -> {
+			cp.deplacer(Event);
+		});
+		this.canvas.setOnMouseReleased(Event -> {
+			cp.deposer();
+		});
+			
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		initControls();	
 	}
 
 }

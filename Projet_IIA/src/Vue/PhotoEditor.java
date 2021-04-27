@@ -7,12 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Menu extends Application {
+public class PhotoEditor extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("un test");
 		AnchorPane myPane = (AnchorPane) FXMLLoader.load(getClass().getResource("Controler.fxml"));
-		Scene myScene = new Scene(myPane, 865, 402);
+		Scene myScene = new Scene(myPane, 984, 469);
 		primaryStage.setScene(myScene);
 		primaryStage.show();
 	}

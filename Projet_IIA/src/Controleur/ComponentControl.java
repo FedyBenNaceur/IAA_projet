@@ -1,23 +1,47 @@
 package Controleur;
 
 import Model.Component;
-import javafx.event.EventHandler;
-import javafx.scene.canvas.GraphicsContext;
+import Vue.Controler;
+
 import javafx.scene.input.MouseEvent;
 
-public class ComponentControl implements EventHandler<MouseEvent>{
-	Component c;
-	GraphicsContext gc ;
-	boolean clicked ; 
+public class ComponentControl {
+	static Component current;
+	boolean clicked = false;
+	static boolean grabbed = false;
+	Controler control;
 
-	ComponentControl(Component c,GraphicsContext gc) {
-		this.c = c;
-		this.gc = gc ; 
+	public ComponentControl(Controler co) {
+		this.control = co;
 	}
 
-	@Override
-	public void handle(MouseEvent e) {
-		double x = e.getX() ; 
-		double y = e.getY();
+	public void deposer() {
+		grabbed = false;
+		current = null;
+		control.repaint();
 	}
+
+	public void deplacer(MouseEvent e) {
+		if (grabbed && current != null) {
+			current.setX(e.getX());
+			current.setY(e.getY());
+		}
+		control.repaint();
+
+	}
+
+	public void attraper(MouseEvent e) {
+		if (!grabbed) {
+			for (Component f : control.model.composantes) {
+				if (f.inForm(e.getX(), e.getSceneY())) {
+					grabbed = true;
+					current = f;
+					System.out.print("noice");
+				}
+			}
+		}
+		control.repaint();
+
+	}
+
 }

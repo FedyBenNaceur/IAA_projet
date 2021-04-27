@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vue.Controler">
    <children>
-      <Canvas fx:id="canvas" height="479.0" layoutY="24.0" width="724.0" />
-      <ImageView fx:id="imageV" fitHeight="479.0" fitWidth="724.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
-      <MenuBar prefHeight="25.0" prefWidth="865.0">
+      <MenuBar prefHeight="25.0" prefWidth="984.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -48,10 +43,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Pane layoutX="720.0" layoutY="24.0" prefHeight="479.0" prefWidth="145.0">
-         <children>
-            <Button fx:id="rotateB" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#rotate" prefHeight="25.0" prefWidth="130.0" text="rotate" />
-         </children>
-      </Pane>
+      <Canvas fx:id="canvas" height="469.0" layoutY="25.0" width="984.0" />
    </children>
 </AnchorPane>

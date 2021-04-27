@@ -1,28 +1,23 @@
 package Model;
 
+import Vue.Controler;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.Shape;
 
 public abstract class Component {
-	int x;
-	int y;
-	int height;
-	int width;
+	Controler control ;
+	double x, y;
 
-	public Component(int x, int y, int height, int width) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
-	}
+	public abstract boolean inForm(double mouseX, double mouseY);
 
-	public abstract void draw(GraphicsContext gc);
+	abstract void draw(GraphicsContext c);
 
-	public abstract void setX(int x);
+	abstract double getX();
 
-	public abstract void setY(int y);
+	abstract double getY();
 
-	public abstract void getX(int x);
+	public abstract void setX(double x);
 
-	public abstract void getY(int y);
-
+	public abstract void setY(double y);
 }
+

@@ -1,41 +1,56 @@
 package Model;
 
+import Controleur.ComponentControl;
+import Vue.Controler;
+import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Polygone extends Component {
 
-	public Polygone(int x, int y, int w, int h) {
-		super(x, y, w, h);
+public class Polygone extends Component {
+	double width;
+	double height;
+
+	public Polygone(double x, double y ,double w, double h){
+		width = w ; 
+		height = h ;
+		this.x = x ; 
+		this.y = y ;
 	}
 
 	@Override
-	public void draw(GraphicsContext c) {
+	double getX() {
+		return this.x;
+	}
+
+	@Override
+	double getY() {
+		return this.y;
+	}
+
+	@Override
+	void draw(GraphicsContext c) {
 		c.setFill(Color.FORESTGREEN);
 		c.fillRect(x, y, width, height);
 	}
 
 	@Override
-	public void setX(int x) {
-		// TODO Auto-generated method stub
+	public boolean inForm(double mouseX, double mouseY) {
+		if (mouseX > x && mouseX < (x + width) && mouseY > y && mouseY < (y + height))
+			return true;
+		return false;
+	}
+
+	@Override
+	public
+	void setX(double x) {
+		this.x = x;
 
 	}
 
 	@Override
-	public void setY(int y) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void getX(int x) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void getY(int y) {
-		// TODO Auto-generated method stub
+	public void setY(double y) {
+		this.y = y;
 
 	}
 
