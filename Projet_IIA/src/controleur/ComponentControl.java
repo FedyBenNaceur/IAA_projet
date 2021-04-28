@@ -1,13 +1,11 @@
-package Controleur;
-
-import Model.Component;
-import Vue.Controler;
+package controleur;
 
 import javafx.scene.input.MouseEvent;
+import model.Component;
+import vue.Controler;
 
 public class ComponentControl {
 	static Component current;
-	boolean clicked = false;
 	static boolean grabbed = false;
 	Controler control;
 
@@ -23,8 +21,7 @@ public class ComponentControl {
 
 	public void deplacer(MouseEvent e) {
 		if (grabbed && current != null) {
-			current.setX(e.getX());
-			current.setY(e.getY());
+			current.updatePos(e.getX(), e.getY());
 		}
 		control.repaint();
 
@@ -33,10 +30,9 @@ public class ComponentControl {
 	public void attraper(MouseEvent e) {
 		if (!grabbed) {
 			for (Component f : control.model.composantes) {
-				if (f.inForm(e.getX(), e.getSceneY())) {
+				if (f.inForm(e.getX(), e.getY())) {
 					grabbed = true;
 					current = f;
-					System.out.print("noice");
 				}
 			}
 		}

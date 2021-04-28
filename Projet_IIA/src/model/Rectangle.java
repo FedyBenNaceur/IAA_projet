@@ -1,17 +1,15 @@
-package Model;
+package model;
 
-import Controleur.ComponentControl;
-import Vue.Controler;
-import javafx.event.EventHandler;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 
-public class Polygone extends Component {
+public class Rectangle extends Component {
 	double width;
 	double height;
 
-	public Polygone(double x, double y ,double w, double h){
+	public Rectangle(double x, double y ,double w, double h){
 		width = w ; 
 		height = h ;
 		this.x = x ; 
@@ -52,6 +50,12 @@ public class Polygone extends Component {
 	public void setY(double y) {
 		this.y = y;
 
+	}
+
+	@Override
+	public void updatePos(double mouseX, double mouseY) {
+		this.setX(mouseX);
+		this.setY(mouseY);	
 	}
 
 }

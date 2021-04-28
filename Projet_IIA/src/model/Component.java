@@ -1,8 +1,8 @@
-package Model;
+package model;
 
-import Vue.Controler;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.shape.Shape;
+
+import vue.Controler;
 
 public abstract class Component {
 	Controler control ;
@@ -19,5 +19,7 @@ public abstract class Component {
 	public abstract void setX(double x);
 
 	public abstract void setY(double y);
+	
+	public abstract void updatePos(double mouseX,double mouseY);
 }
 
