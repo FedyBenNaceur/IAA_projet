@@ -32,7 +32,7 @@ public class TextControler {
 		if (readyToShow) {
 			text = c.getText();
 			String f = c.fontSize.getText();
-			if(isNumeric(f) && f!="") {
+			if(Controler.isNumeric(f) && f!="") {
 				fonts.add(new Font(Integer.parseInt(f)));
 			}else {
 				Alert alert = new Alert(AlertType.INFORMATION);
@@ -70,7 +70,5 @@ public class TextControler {
 		}
 	}
 
-	public static boolean isNumeric(String str) {
-		return str.matches("-?\\d+(\\.\\d+)?"); 
-	}
+	
 }

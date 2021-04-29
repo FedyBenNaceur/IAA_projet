@@ -31,6 +31,15 @@ public class Ellipse extends Component {
 	public void setX(double x) {
 		this.x = x;
 	}
+	
+	public void setWidth(double w) {
+		this.width = w; 
+	}
+	
+	public void setHeight(double h) {
+		this.height = h ;
+	}
+
 
 	@Override
 	void draw(GraphicsContext c) {

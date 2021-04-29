@@ -48,10 +48,23 @@ public class Controler implements Initializable {
 	public ColorPicker colorP;
 	@FXML
 	public TextField fontSize;
+	@FXML
+	public TextField height ;
+	@FXML
+	public TextField width ;
+	@FXML 
+	public Button applyDim ;
+	@FXML 
+	public Button deleteComp ;
+	
 
 	private File img;
 
 	public Model model;
+	
+	public Component selected;
+	
+	public int selectedIndex ;
 
 	private ComponentControl cp;
 	
@@ -130,9 +143,16 @@ public class Controler implements Initializable {
 		this.canvas.setOnMouseClicked(Event -> {
 			lp.spawnLine(Event);
 			tp.createText(Event,colorP.getValue());
+			cp.select(Event);
 		});
 		this.addTxt.setOnMouseClicked(Event -> {
 			tp.setReady();
+		});
+		this.applyDim.setOnMouseClicked(Event -> {
+			cp.applyDimChanges();
+		});
+		this.deleteComp.setOnMouseClicked(Event->{
+			cp.delete();
 		});
 	}
 
@@ -143,6 +163,10 @@ public class Controler implements Initializable {
 	
     public TextField getText() {
 		return this.textF ;
+	}
+    
+    public static boolean isNumeric(String str) {
+		return str.matches("-?\\d+(\\.\\d+)?"); 
 	}
 
 }

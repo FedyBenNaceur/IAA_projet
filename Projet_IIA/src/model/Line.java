@@ -68,4 +68,16 @@ public class Line extends Component {
 		
 	}
 
+	@Override
+	public void setWidth(double w) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setHeight(double h) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

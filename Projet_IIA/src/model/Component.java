@@ -21,10 +21,15 @@ public abstract class Component {
 
 	public abstract void setY(double y);
 	
+	public abstract void setWidth(double w);
+	
+	public abstract void setHeight(double h);
+	
 	public abstract void updatePos(double mouseX,double mouseY);
 	
 	public void setColor(Color c) {
 		this.c = c ;
 	}
+
 }
 

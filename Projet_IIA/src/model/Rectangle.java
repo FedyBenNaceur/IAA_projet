@@ -40,8 +40,7 @@ public class Rectangle extends Component {
 	}
 
 	@Override
-	public
-	void setX(double x) {
+	public	void setX(double x) {
 		this.x = x;
 
 	}
@@ -50,6 +49,16 @@ public class Rectangle extends Component {
 	public void setY(double y) {
 		this.y = y;
 
+	}
+	
+	@Override
+	public void setWidth(double w) {
+		this.width = w; 
+	}
+	
+	@Override
+	public void setHeight(double h) {
+		this.height = h ;
 	}
 
 	@Override
