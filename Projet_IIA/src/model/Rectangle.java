@@ -28,7 +28,7 @@ public class Rectangle extends Component {
 
 	@Override
 	void draw(GraphicsContext c) {
-		c.setFill(Color.FORESTGREEN);
+		c.setFill(this.c);
 		c.fillRect(x, y, width, height);
 	}
 

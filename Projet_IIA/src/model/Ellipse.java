@@ -34,7 +34,7 @@ public class Ellipse extends Component {
 
 	@Override
 	void draw(GraphicsContext c) {
-		c.setFill(Color.RED);
+		c.setFill(this.c);
 		c.fillOval(x, y, width, height);
 	}
 

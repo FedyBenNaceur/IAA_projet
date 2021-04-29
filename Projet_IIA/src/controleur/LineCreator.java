@@ -20,6 +20,7 @@ public class LineCreator {
 			creatL = new Line();
 			creatL.setX(e.getX());
 			creatL.setY(e.getY());
+			creatL.setColor(control.colorP.getValue());
 			setFst = true;
 		} else {
 			if (setFst) {

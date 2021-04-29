@@ -29,7 +29,7 @@ public class Line extends Component {
 	@Override
 	void draw(GraphicsContext c) {
 		if (readyToDraw) {
-			c.setFill(Color.BLACK);
+			c.setFill(this.c);
 			c.strokeLine(x, y, x2, y2);
 		}
 	}
