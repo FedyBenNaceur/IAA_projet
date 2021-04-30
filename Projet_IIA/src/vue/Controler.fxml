@@ -39,7 +39,12 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Emojis">
                      <items>
-                        <MenuItem mnemonicParsing="false" text=":p" />
+                        <MenuItem fx:id="emoji1" mnemonicParsing="false" text=":p" />
+                        <MenuItem fx:id="emoji2" mnemonicParsing="false" text="boss" />
+                        <MenuItem fx:id="emoji3" mnemonicParsing="false" text="&lt;3" />
+                        <MenuItem fx:id="emoji4" mnemonicParsing="false" text=":D" />
+                        <MenuItem fx:id="emoji5" mnemonicParsing="false" text="angel" />
+                        <MenuItem fx:id="emoji6" mnemonicParsing="false" text=":poop:" />
                      </items>
                   </Menu>
               </items>
@@ -63,7 +68,7 @@
             <TextField fx:id="width" layoutX="77.0" layoutY="157.0" prefHeight="23.0" prefWidth="83.0" />
             <TextField fx:id="height" layoutX="77.0" layoutY="193.0" prefHeight="23.0" prefWidth="83.0" />
             <Button fx:id="applyDim" layoutX="167.0" layoutY="177.0" mnemonicParsing="false" text="Apply" />
-            <Button layoutX="11.0" layoutY="119.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="149.0" text="Delete" />
+            <Button fx:id="deleteComp" layoutX="11.0" layoutY="119.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="149.0" text="Delete" />
          </children>
       </Pane>
    </children>

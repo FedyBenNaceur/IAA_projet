@@ -15,7 +15,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.Component;
 import model.Ellipse;
-
+import model.Emoji;
 import model.Model;
 import model.Rectangle;
 
@@ -40,6 +40,18 @@ public class Controler implements Initializable {
 	private MenuItem rectChoice;
 	@FXML
 	private MenuItem lineChoice;
+	@FXML
+	private MenuItem emoji1 ;
+	@FXML
+	private MenuItem emoji2 ;
+	@FXML
+	private MenuItem emoji3 ;
+	@FXML
+	private MenuItem emoji4 ;
+	@FXML
+	private MenuItem emoji5 ;
+	@FXML
+	private MenuItem emoji6 ;
 	@FXML
 	private TextField textF ;	 
 	@FXML
@@ -108,6 +120,12 @@ public class Controler implements Initializable {
 		model.composantes.add(c);
 		model.drawComponents(canvas.getGraphicsContext2D());
 	}
+	
+	public void createEmoji(String url) {
+		Component c = new Emoji(100,100,new Image(url));
+		model.composantes.add(c);
+		model.drawComponents(canvas.getGraphicsContext2D());
+	}
 
 	@FXML
 	public void createLine() {
@@ -153,6 +171,24 @@ public class Controler implements Initializable {
 		});
 		this.deleteComp.setOnMouseClicked(Event->{
 			cp.delete();
+		});
+		this.emoji1.setOnAction(Event->{
+			createEmoji("emoji1.png");
+		});
+		this.emoji2.setOnAction(Event->{
+			createEmoji("boss.png");
+		});
+		this.emoji3.setOnAction(Event->{
+			createEmoji("heart.png");
+		});
+		this.emoji4.setOnAction(Event->{
+			createEmoji("smile.png");
+		});
+		this.emoji5.setOnAction(Event->{
+			createEmoji("angel.png");
+		});
+		this.emoji6.setOnAction(Event->{
+			createEmoji("poop.png");
 		});
 	}
 
