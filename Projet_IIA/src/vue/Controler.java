@@ -80,9 +80,9 @@ public class Controler implements Initializable {
 	@FXML
 	public Menu filterMenu;
 	@FXML
-	public Button undoFilter ;
+	public Button undoFilter;
 	@FXML
-	private MenuItem saveMenu ; 
+	private MenuItem saveMenu;
 
 	private File img;
 
@@ -92,13 +92,12 @@ public class Controler implements Initializable {
 
 	public Component selected;
 
-	public List<Filter> filters = Arrays.asList(
-			new Filter("Invert",c->c.invert()), 
-			new Filter("Grayscale",c->c.grayscale()),
-			new Filter("Black and White",c ->valueOf(c)<1.5?Color.BLACK:Color.WHITE ),
-			new Filter("Red",c->Color.color(1, c.getGreen(), c.getBlue())),
-			new Filter("Green",c->Color.color(c.getRed(), 1, c.getBlue())),
-			new Filter("Blue",c->Color.color(c.getRed(), c.getGreen(),1)));
+	public List<Filter> filters = Arrays.asList(new Filter("Invert", c -> c.invert()),
+			new Filter("Grayscale", c -> c.grayscale()),
+			new Filter("Black and White", c -> valueOf(c) < 1.5 ? Color.BLACK : Color.WHITE),
+			new Filter("Red", c -> Color.color(1, c.getGreen(), c.getBlue())),
+			new Filter("Green", c -> Color.color(c.getRed(), 1, c.getBlue())),
+			new Filter("Blue", c -> Color.color(c.getRed(), c.getGreen(), 1)));
 
 	public int selectedIndex;
 
@@ -111,8 +110,6 @@ public class Controler implements Initializable {
 	public Controler() {
 		this.model = new Model();
 	}
-	
-	
 
 	@FXML
 	private void importAction(ActionEvent e) throws IOException {
@@ -185,21 +182,17 @@ public class Controler implements Initializable {
 		tp.printText(gc);
 
 	}
-	
+
 	public void onSave() {
 		try {
-			
-			  SnapshotParameters parameters = new SnapshotParameters();
-              WritableImage wi = new WritableImage((int) canvas.getWidth(),(int)canvas.getHeight());
-       
+			Image snapshot = canvas.snapshot(null, null);
+			ImageIO.write(SwingFXUtils.fromFXImage(snapshot, null), "png", new File("paint.png"));
+		   
 
-              File output = new File("snapshot" + new Date().getTime() + ".png");
-              ImageIO.write(SwingFXUtils.fromFXImage(wi, null), "png", output);
-			
-		}catch(Exception e ) {
+		} catch (Exception e) {
 			System.out.println("Failed to save");
 		}
-		
+
 	}
 
 	public void initControls() {
@@ -264,8 +257,8 @@ public class Controler implements Initializable {
 		this.emoji6.setOnAction(Event -> {
 			createEmoji("poop.png");
 		});
-		this.undoFilter.setOnMouseClicked(e->undoFilter());
-		this.saveMenu.setOnAction(e->onSave());
+		this.undoFilter.setOnMouseClicked(e -> undoFilter());
+		this.saveMenu.setOnAction(e -> onSave());
 	}
 
 	@Override
@@ -280,9 +273,9 @@ public class Controler implements Initializable {
 	public static boolean isNumeric(String str) {
 		return str.matches("-?\\d+(\\.\\d+)?");
 	}
-	
+
 	private double valueOf(Color c) {
-		return c.getRed()+c.getBlue()+c.getGreen();
+		return c.getRed() + c.getBlue() + c.getGreen();
 	}
 
 }
