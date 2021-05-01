@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.Controler">
+<AnchorPane maxHeight="1080.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1813.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.Controler">
    <children>
-      <Canvas fx:id="canvas" height="469.0" layoutY="25.0" width="750.0" />
-      <MenuBar prefHeight="25.0" prefWidth="991.0">
+      <Canvas fx:id="canvas" height="720.0" layoutY="25.0" width="1571.0" />
+      <MenuBar prefHeight="25.0" prefWidth="1813.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -55,7 +55,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Pane layoutX="760.0" layoutY="25.0" prefHeight="469.0" prefWidth="231.0">
+      <Pane layoutX="1581.0" layoutY="25.0" prefHeight="720.0" prefWidth="232.0">
          <children>
             <Button fx:id="addTxt" layoutX="160.0" layoutY="4.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="66.0" text="addText" />
             <Text layoutX="18.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Width" />

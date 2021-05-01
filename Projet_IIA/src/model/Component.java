@@ -4,10 +4,16 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import vue.Controler;
 
+
+/**
+ *  Classe mère qui represente les composantes à ajouter sur la photo
+ *  @author Fedy
+ *
+ */
 public abstract class Component {
-	Controler control ;
-	double x, y;
-	Color c ; 
+	Controler control ;//Le controleur FXML de l'application
+	double x, y;//Les coordonnées de la composante
+	Color c;//La couleur de la composante
 
 	public abstract boolean inForm(double mouseX, double mouseY);
 
@@ -27,6 +33,7 @@ public abstract class Component {
 	
 	public abstract void updatePos(double mouseX,double mouseY);
 	
+	//Méthode qui affecte la couleur de la composante
 	public void setColor(Color c) {
 		this.c = c ;
 	}
